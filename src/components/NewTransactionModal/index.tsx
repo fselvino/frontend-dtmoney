@@ -3,7 +3,7 @@ import {Container, TransacitonTypeContainer, RadioBox } from './styles'
 import { TransactionContext } from "../../TransactionContext";
 import { FormEvent, useState, useContext} from "react";
 
-import { api } from "../../sevices/api";
+
 
 import closeImg from '../../assets/close.svg'
 import incomeImg from '../../assets/income.svg'
