@@ -1,10 +1,12 @@
 
 import styled from 'styled-components'
 
+interface Props {
+    isValue: boolean
+}
 
 
-
-export const Container = styled.div`
+export const Container = styled.div<Props>`
 
 display: grid ;
 grid-template-columns: repeat(3, 1fr) ;
@@ -32,7 +34,7 @@ div {
 }
 
 &.highlight-background {
-    background: var(--green) ;
+    background: ${ (props) => (props.isValue ? 'var(--green)' : 'var(--red)')} ;
     color:#FFF
 }
 }

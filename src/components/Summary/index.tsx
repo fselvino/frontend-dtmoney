@@ -1,5 +1,6 @@
 
 
+import { useState } from 'react';
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import totalImg from '../../assets/total.svg'
@@ -11,24 +12,40 @@ import { Container } from "./styles";
 
 export function Summary (){
 
+    const [isValue, setIsValue] = useState(false)
+
    const {transactions} = useTransactions()
    
     const summary = transactions.reduce((acc, transaction)=> {
         if(transaction.type === 'deposit'){
             acc.deposit += transaction.amount
             acc.total += transaction.amount
-    }else{
+        }else{
             acc.withdraw += transaction.amount
             acc.total -= transaction.amount
-    }
-    return acc
-    }, {
+             }
+
+         
+
+         return acc
+       
+    }, 
+    
+    {
         deposit:0,
         withdraw:0,
         total:0,
-    })
+    }
+   
+    )
+
+   
+    const testaValor = summary.total >= 0 ? true: false
+  
     return (
-       <Container>     
+       <Container
+       isValue={testaValor}
+       >     
 
            <div>
                <header>
