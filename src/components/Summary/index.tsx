@@ -1,15 +1,17 @@
-import { useContext } from 'react';
+
+
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import totalImg from '../../assets/total.svg'
-import { TransactionContext } from '../../TransactionContext';
+import { useTransactions } from '../../hooks/useTransactions';
+
 
 
 import { Container } from "./styles";
 
 export function Summary (){
 
-   const {transactions} = useContext(TransactionContext)
+   const {transactions} = useTransactions()
    
     const summary = transactions.reduce((acc, transaction)=> {
         if(transaction.type === 'deposit'){
@@ -52,7 +54,10 @@ export function Summary (){
                 }).format(summary.withdraw)} 
                </strong>
            </div>
-           <div className='highlight-background'>
+           <div 
+           className='highlight-background'  
+                        
+           >
                <header>
                    <p>Total</p>
                    <img src={totalImg} alt="Total" />

@@ -1,6 +1,10 @@
+
 import styled from 'styled-components'
 
-export const Container = styled.div `
+
+
+
+export const Container = styled.div`
 
 display: grid ;
 grid-template-columns: repeat(3, 1fr) ;
@@ -17,6 +21,7 @@ div {
     display:flex ;
     align-items:center ;
     justify-content:space-between ;
+    
 }
     strong {
     display:block ;
